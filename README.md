@@ -1,173 +1,190 @@
-# 🧠 Pneumonia Misinformation Simulation
+# Cognitive Health Prediction System
 
-A comprehensive simulation platform that analyzes the impact of misinformation on patient care-seeking behavior in pneumonia cases. This project combines machine learning, social media analysis, and agent-based modeling to understand how misinformation affects healthcare decisions.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-red.svg)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 🌟 Features
+A comprehensive machine learning system for predicting cognitive health scores (PHQ-8) using multimodal data analysis and misinformation spread simulation. This project combines advanced ML techniques with network analysis to provide both predictive insights and resource allocation recommendations.
 
-### 🔬 **Machine Learning Models**
-- **Logistic Regression** and **XGBoost** classifiers for pneumonia detection
-- Image preprocessing with data augmentation
-- Comprehensive model evaluation metrics (accuracy, precision, recall, F1-score)
-- Confusion matrix visualization
+## 🚀 Features
 
-### 📱 **Multi-Source Data Collection**
-- **Twitter** - Real-time tweet analysis using Twitter API v2
-- **News Articles** - Current news coverage via NewsAPI
-- **Reddit** - Community discussions and posts
-- **Web Search** - Comprehensive web results via Tavily API
-- **Wikipedia** - Academic and reference information
-- **Hacker News** - Tech community discussions
-- **PubMed** - Medical research publications
-- **CrossRef** - Academic research metadata
+### Core Functionality
+- **Multimodal Data Processing**: Handles audio, facial keypoints, gaze confidence, pose confidence, and text data
+- **PHQ-8 Score Prediction**: Machine learning pipeline for depression severity assessment
+- **Feature Engineering**: Intelligent feature summarization and dimensionality reduction
+- **Model Explainability**: SHAP and LIME integration for interpretable predictions
+- **Resource Allocation**: Priority-based treatment capacity management
 
-### 🤖 **Agent-Based Simulation**
-- **Patient Agents** - Model individual patient behavior and decision-making
-- **Clinician Agents** - Represent healthcare provider interactions
-- **Misinformation Impact** - Simulate how misinformation affects care-seeking behavior
-- **Dynamic Environment** - Multi-grid spatial simulation with random activation
+### Advanced Analytics
+- **Misinformation Spread Simulation**: Network-based SIR model for risk assessment
+- **Dynamic Risk Adjustment**: Real-time risk scoring with misinformation factors
+- **Interactive Visualizations**: Streamlit-based dashboard with real-time updates
+- **Performance Metrics**: Comprehensive evaluation with MAE, RMSE, and R² scores
 
-### 📊 **Advanced Analytics**
-- Sentiment analysis using TextBlob
-- Misinformation detection algorithms
-- Real-time data visualization
-- Interactive Streamlit dashboard
-- Comprehensive reporting and metrics
+## 📋 Prerequisites
 
-## 🚀 Quick Start
+- Python 3.8 or higher
+- 8GB+ RAM recommended for large datasets
+- GPU support optional (CPU-based processing supported)
 
-### Prerequisites
-
-- Python 3.8+
-- Streamlit
-- Required API keys (see Configuration section)
-
-### Installation
+## 🛠️ Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/pneumonia-misinfo-simulation.git
-   cd pneumonia-misinfo-simulation
+   git clone https://github.com/yourusername/cognitive-prediction.git
+   cd cognitive-prediction
    ```
 
-2. **Install dependencies**
+2. **Create a virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Set up environment variables**
-   ```bash
-   # Create a .env file with your API keys
-   BEARER_TOKEN=your_twitter_bearer_token
-   NEWS_API_KEY=your_news_api_key
-   TAVILY_API_KEY=your_tavily_api_key
-   ```
-
-4. **Run the application**
-   ```bash
-   streamlit run streamlit_pneumonia.py
-   ```
-
-## ⚙️ Configuration
-
-### API Keys Required
-
-| Service | Environment Variable | Description |
-|---------|---------------------|-------------|
-| Twitter | `BEARER_TOKEN` | Twitter API v2 Bearer Token |
-| News API | `NEWS_API_KEY` | NewsAPI.org API Key |
-| Tavily | `TAVILY_API_KEY` | Tavily Search API Key |
-
-### Optional Settings
-
-- **Tweet Count**: Number of tweets to analyze (1-100)
-- **Reddit Posts**: Number of Reddit posts to collect (1-100)
-- **Web Results**: Number of Tavily search results (1-50)
-- **Wikipedia**: Number of Wikipedia articles (1-50)
-- **Hacker News**: Number of HN stories (1-50)
-- **PubMed**: Number of medical publications (1-50)
-- **CrossRef**: Number of academic papers (1-50)
-
 ## 📁 Project Structure
 
 ```
-pneumonia/
-├── streamlit_pneumonia.py    # Main application file
-├── requirements.txt          # Python dependencies
-├── .env                     # Environment variables (create this)
-├── train/                   # Training image dataset
-│   ├── NORMAL/             # Normal chest X-rays
-│   └── PNEUMONIA/          # Pneumonia chest X-rays
-└── test/                    # Test image dataset
-    ├── NORMAL/             # Normal chest X-rays
-    └── PNEUMONIA/          # Pneumonia chest X-rays
+cognitive-prediction/
+├── predictive_cognitive.py    # Main application file
+├── data/                      # Data directory
+│   ├── data_csv/             # CSV label files
+│   ├── train/                # Training data features
+│   ├── valid/                # Validation data features
+│   └── test/                 # Test data features
+├── artifacts/                 # Generated outputs
+├── requirements.txt           # Python dependencies
+└── README.md                 # This file
 ```
 
-## 🔧 Usage
+## 🚀 Usage
 
-### 1. **Data Collection**
-- Configure your search query (default: "Pneumonia")
-- Adjust data collection parameters in the sidebar
-- Click "Run Simulation" to start data collection
+### Streamlit Web Application (Recommended)
 
-### 2. **Model Training**
-- The system automatically processes chest X-ray images
-- Trains Logistic Regression and XGBoost models
-- Displays performance metrics and confusion matrices
+Launch the interactive web interface:
 
-### 3. **Misinformation Analysis**
-- Collects data from multiple sources
-- Performs sentiment analysis on collected text
-- Calculates misinformation rates per source
+```bash
+streamlit run predictive_cognitive.py
+```
 
-### 4. **Simulation**
-- Runs agent-based simulation with configurable parameters
-- Models patient behavior under misinformation influence
-- Visualizes care-seeking behavior patterns
+**Features:**
+- Real-time model training and evaluation
+- Interactive parameter adjustment
+- Dynamic visualizations and charts
+- Patient-level explanations
+- Resource allocation simulation
 
-### 5. **Results & Visualization**
-- Interactive charts and graphs
-- Source-wise misinformation analysis
-- Sentiment distribution plots
-- Simulation trends over time
+### Command Line Interface
 
-## 📊 Output Examples
+Run the pipeline in CLI mode:
 
-- **Model Performance**: Accuracy metrics, confusion matrices
-- **Misinformation Rates**: Per-source breakdown of potential misinformation
-- **Sentiment Analysis**: TextBlob polarity scores across sources
-- **Simulation Results**: Patient behavior patterns and trends
-- **Care-Seeking Impact**: How misinformation affects healthcare decisions
+```bash
+python predictive_cognitive.py --mode cli --capacity 20 --steps 30
+```
 
-## 🛠️ Technical Details
+**CLI Options:**
+- `--mode`: Choose between `cli` or `app` (default: `app`)
+- `--trans-prob`: Misinformation transmission probability (default: 0.2)
+- `--rec-prob`: Recovery probability (default: 0.1)
+- `--steps`: Simulation steps (default: 20)
+- `--capacity`: Treatment capacity (default: 10)
+- `--output-dir`: Output directory for artifacts (default: `artifacts`)
 
-### Machine Learning Pipeline
-- **Image Preprocessing**: Resize to 64x64, normalize to [0,1], data augmentation
-- **Feature Extraction**: Flatten images for traditional ML models
-- **Model Training**: Logistic Regression and XGBoost with hyperparameter tuning
-- **Evaluation**: Comprehensive metrics and visualization
+## 🔧 Configuration
 
-### Agent-Based Modeling
-- **Patient Agents**: Individual decision-making based on symptoms and misinformation exposure
-- **Clinician Agents**: Healthcare provider representation
-- **Spatial Environment**: MultiGrid with random agent activation
-- **Data Collection**: Real-time metrics collection during simulation
+### Environment Variables
 
-### Data Sources Integration
-- **REST APIs**: Twitter, News, Tavily, PubMed, CrossRef
-- **Web Scraping**: Reddit, Wikipedia, Hacker News
-- **Rate Limiting**: Built-in timeout and error handling
-- **Data Cleaning**: HTML tag removal, text preprocessing
+Set the data directory path:
+
+```bash
+export PREDICT_DATA_DIR="/path/to/your/data"
+```
+
+### Data Format Requirements
+
+**Dataset Download:**
+Download the required dataset from: [TramCam DAIC-WOZ-E Dataset on Kaggle](https://www.kaggle.com/datasets/trilism/tramcam-daic-woz-e?resource=download)
+
+**CSV Files:**
+- `train_split_Depression_AVEC2017.csv`
+- `dev_split_Depression_AVEC2017.csv`
+- `full_test_split.csv`
+
+**Required Columns:**
+- `Participant_ID`: Unique participant identifier
+- `PHQ8_Score`: Depression severity score (0-24)
+
+**Feature Files:**
+- Format: `.npy` files
+- Naming: `{split}_ft_{modality}_{pid}.npy`
+- Modalities: audio, fkps, gaze_conf, pose_conf, text
+
+## 📊 Model Architecture
+
+### Feature Processing Pipeline
+1. **Multimodal Loading**: Automatic detection and loading of available modalities
+2. **Feature Summarization**: Statistical aggregation and dimensionality reduction
+3. **Alignment**: Consistent feature matrix construction across participants
+4. **Scaling**: StandardScaler normalization for optimal model performance
+
+### Machine Learning Model
+- **Algorithm**: Random Forest Regressor
+- **Hyperparameters**: 500 estimators, optimized for regression tasks
+- **Cross-validation**: Train/validation/test split strategy
+- **Feature Selection**: Automatic handling of missing modalities
+
+### Explainability Methods
+- **SHAP (SHapley Additive exPlanations)**: Global and local feature importance
+- **LIME (Local Interpretable Model-agnostic Explanations)**: Instance-specific explanations
+
+## 📈 Performance Metrics
+
+The system provides comprehensive evaluation metrics:
+
+- **Mean Absolute Error (MAE)**: Average prediction deviation
+- **Root Mean Square Error (RMSE)**: Standard deviation of prediction errors
+- **R² Score**: Coefficient of determination (0-1, higher is better)
+
+## 🌐 Misinformation Simulation
+
+### SIR Model Implementation
+- **Susceptible (S)**: Participants not exposed to misinformation
+- **Infected (I)**: Participants currently affected by misinformation
+- **Recovered (R)**: Participants who have overcome misinformation
+
+### Network Properties
+- **Topology**: Barabási-Albert scale-free network
+- **Dynamics**: Time-evolving state transitions
+- **Risk Assessment**: Real-time misinformation spread calculation
+
+## 📁 Output Artifacts
+
+Generated files are saved in the `artifacts/` directory:
+
+- `severity_model.pkl`: Trained model and scaler
+- `validation_plot.png`: Predicted vs actual PHQ-8 scores
+- `risk_heatmap_cli.png`: Risk distribution visualization
+- `explain_*.png`: SHAP/LIME explanation plots
 
 ## 🤝 Contributing
 
-We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+We welcome contributions! Please follow these steps:
 
-### Development Setup
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+### Development Guidelines
+- Follow PEP 8 style guidelines
+- Add comprehensive docstrings for new functions
+- Include unit tests for new features
+- Update documentation as needed
 
 ## 📝 License
 
@@ -175,31 +192,32 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Streamlit** for the interactive web framework
-- **Mesa** for agent-based modeling capabilities
-- **TextBlob** for sentiment analysis
-- **Scikit-learn** and **XGBoost** for machine learning models
-- **Matplotlib** and **Seaborn** for data visualization
-- **Kaggle Dataset** - [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) by Paul Mooney for the chest X-ray image dataset
+- **AVEC 2017 Dataset**: Depression assessment data
+- **SHAP**: Model explainability framework
+- **LIME**: Local interpretability methods
+- **Streamlit**: Interactive web application framework
+- **NetworkX**: Network analysis and visualization
 
 ## 📞 Support
 
-If you encounter any issues or have questions:
+For questions, issues, or contributions:
 
-1. Check the [Issues](https://github.com/yourusername/pneumonia-misinfo-simulation/issues) page
-2. Create a new issue with detailed description
-3. Include your environment details and error logs
+- **Issues**: [GitHub Issues](https://github.com/yourusername/cognitive-prediction/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/cognitive-prediction/discussions)
+- **Email**: your.email@example.com
 
-## 🔬 Research Applications
+## 🔮 Future Roadmap
 
-This simulation platform is designed for:
-- **Healthcare Research**: Understanding misinformation's impact on patient behavior
-- **Public Health**: Analyzing social media's role in health decisions
-- **Policy Making**: Informing healthcare communication strategies
-- **Academic Studies**: Research on digital health literacy and misinformation
+- [ ] Deep learning model integration
+- [ ] Real-time data streaming support
+- [ ] Advanced network analysis algorithms
+- [ ] Mobile application development
+- [ ] API endpoint for external integrations
+- [ ] Multi-language support
 
 ---
 
-**⚠️ Disclaimer**: This tool is for research and educational purposes. It should not be used for medical diagnosis or treatment decisions. Always consult healthcare professionals for medical advice.
+**Note**: This system is designed for research and educational purposes. Always consult healthcare professionals for clinical decisions.
 
-**Made with ❤️ for better healthcare understanding**
+**Last Updated**: August 2025
+**Version**: 1.0.0
